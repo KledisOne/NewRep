@@ -1,0 +1,17 @@
+{
+    "name": "Personal Project ruleset",
+    "description": "A list of project specific rules",
+    "includedRuleSets": [
+        {
+            "action": "Default",
+            "path": "./company.ruleset.json"
+        }
+    ],
+    "rules": [
+        {
+            "id": "AA0005",
+            "action": "Info",
+            "justification": "For this specific project, this diagnostic should be informational."
+        }
+    ]
+}

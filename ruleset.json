@@ -1,0 +1,9 @@
+{
+    "name": "My Custom ruleset",
+    "rules": [
+        {
+        "id": "AA0001",
+        "action": "None"
+        }
+    ]
+}
