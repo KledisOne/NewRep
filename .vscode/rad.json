@@ -1,1 +1,1 @@
-﻿{"Added":[],"Modified":[{"Id":50111,"Kind":10,"Name":"CRONUS Course","PackagePath":"/src/src/Course.Table.al"}],"Removed":[]}
+﻿{"Added":[{"Id":50104,"Kind":10,"Name":"CSD Seminar","PackagePath":"/src/src/Table/tab01_Seminar.al"},{"Id":50101,"Kind":12,"Name":"CSD Seminar Setup","PackagePath":"/src/src/Page/pag00_SeminarSetup.al"},{"Id":50103,"Kind":10,"Name":"CSD Seminar Setup","PackagePath":"/src/src/Table/tab00_SeminarSetup.al"}],"Modified":[],"Removed":[]}
