@@ -11,16 +11,19 @@ table 50124 "Example Setup"
         field(1; "Primary Key"; Code[10])
         {
             Caption = 'Primary Key';
+            DataClassification = CustomerContent;
         }
         field(2; "Example Nos."; Code[20])
         {
             Caption = 'Example Nos.';
             TableRelation = "No. Series";
+            DataClassification = CustomerContent;
         }
         field(3; "Document Nos."; Code[20])
         {
             Caption = 'Document Nos.';
             TableRelation = "No. Series";
+            DataClassification = CustomerContent;
         }
     }
     keys

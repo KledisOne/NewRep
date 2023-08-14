@@ -1,7 +1,7 @@
 tableextension 50001 "CSD ResourceExt" extends Resource
 {
 
-    fields                                       // STR - CSD1.00 - 2023-08-07 - KGJ
+    fields // STR - CSD1.00 - 2023-08-07 - KGJ
     {
         field(50000; "Resource Type"; Option)
         {

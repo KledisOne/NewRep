@@ -30,3 +30,6 @@ table 50102 "Customer Rewards Mgt Setup"
         }
     }
 }
+
+
+

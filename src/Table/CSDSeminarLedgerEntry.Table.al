@@ -1,0 +1,165 @@
+table 50132 "CSD Seminar Ledger Entry"
+{
+    Caption = 'CSD Seminar Ledger Entry';
+    DataClassification = CustomerContent;
+
+    fields
+    {
+        field(1; "Entry No."; Integer)
+        {
+            Caption = 'Entry No.';
+            DataClassification = CustomerContent;
+        }
+        field(2; "Posting Date"; Date)
+        {
+            Caption = 'Posting Date';
+            DataClassification = CustomerContent;
+        }
+        field(3; "Document No."; Code[20])
+        {
+            Caption = 'Document No.';
+            DataClassification = CustomerContent;
+        }
+        field(4; "Entry Type"; Option)
+        {
+            Caption = 'Entry Type';
+            DataClassification = CustomerContent;
+        }
+        field(5; "Seminar No."; Code[20])
+        {
+            Caption = 'Seminar No.';
+            DataClassification = CustomerContent;
+        }
+        field(6; Description; Text[50])
+        {
+            Caption = 'Description';
+            DataClassification = CustomerContent;
+        }
+        field(7; "Bill-to Customer"; Code[20])
+        {
+            Caption = 'Bill-to Customer';
+            DataClassification = CustomerContent;
+        }
+        field(8; "Charge Type"; Option)
+        {
+            Caption = 'Charge Type';
+            DataClassification = CustomerContent;
+        }
+        field(9; "Type"; Option)
+        {
+            Caption = 'Type';
+            DataClassification = CustomerContent;
+        }
+        field(10; Quantity; Decimal)
+        {
+            Caption = 'Quantity';
+            DataClassification = CustomerContent;
+        }
+
+        field(11; "Document Date"; Date)
+        {
+            Caption = 'Document Date';
+            DataClassification = CustomerContent;
+        }
+        field(12; "Unit Price"; Decimal)
+        {
+            Caption = 'Unit Price';
+            DataClassification = CustomerContent;
+        }
+        field(13; "Total Price"; Decimal)
+        {
+            Caption = 'Total Price';
+            DataClassification = CustomerContent;
+        }
+        field(14; "Participant Contact No."; Code[20])
+        {
+            Caption = 'Participant Contact No.';
+            DataClassification = CustomerContent;
+        }
+        field(15; "Participant Name"; Text[50])
+        {
+            Caption = 'Participant Name';
+            DataClassification = CustomerContent;
+        }
+        field(17; "Room Resource No."; Code[20])
+        {
+            Caption = 'Room Resource No.';
+            DataClassification = CustomerContent;
+        }
+        field(18; "Instructor Resource No."; Code[20])
+        {
+            Caption = 'Instructor Resource No.';
+            DataClassification = CustomerContent;
+        }
+        field(19; "Starting Date"; Date)
+        {
+            Caption = 'Starting Date';
+            DataClassification = CustomerContent;
+        }
+        field(20; "Seminar Registration No."; Code[20])
+        {
+            Caption = 'Seminar Registration No.';
+            DataClassification = CustomerContent;
+        }
+        field(21; "Res. Ledger Entry No."; Integer)
+        {
+            Caption = 'Res. Ledger Entry No.';
+            DataClassification = CustomerContent;
+        }
+        field(22; "Source Type"; Option)
+        {
+            Caption = 'Source Type';
+            DataClassification = CustomerContent;
+        }
+        field(23; "Source No."; Code[20])
+        {
+            Caption = 'Source No.';
+            DataClassification = CustomerContent;
+        }
+        field(24; "Journal Batch Name"; Code[10])
+        {
+            Caption = 'Journal Batch Name';
+            DataClassification = CustomerContent;
+        }
+        field(25; "Source Code"; Code[10])
+        {
+            Caption = 'Source Code';
+            DataClassification = CustomerContent;
+        }
+        field(26; "Reason Code"; Code[10])
+        {
+            Caption = 'Reason Code';
+            DataClassification = CustomerContent;
+        }
+        field(27; Chargeable; Boolean)
+        {
+            Caption = 'Chargeable';
+            DataClassification = CustomerContent;
+        }
+        field(28; "User Id"; code[50])
+        {
+            TableRelation = user where("User Name" = field("User Id"));
+            ValidateTableRelation = false;
+            trigger OnLookup();
+            var
+                UserMgt: Codeunit "User Management";
+            begin
+                usermgt.LookupUserID("User Id");
+            end;
+        }
+    }
+    keys
+    {
+        key(PK; "Entry No.")
+        {
+            Clustered = true;
+        }
+    }
+    var
+        SeminarJnlLine: Record "CSD Seminar Journal Line";
+        SeminarLedgerEntry: Record "CSD Seminar Ledger Entry";
+        SeminarRegister: Record "CSD Seminar Register";
+        SeminarJnlCheckLine: Codeunit "CSD Seminar Jnl.-Check Line";
+        NextEntryNo: Integer;
+}
+

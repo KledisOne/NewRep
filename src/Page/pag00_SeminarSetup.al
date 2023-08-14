@@ -16,11 +16,11 @@ page 50101 "CSD Seminar Setup"
         {
             group(Numbering)
             {
-                field("Seminar Nos."; Rec."Seminar Nos.")
+                field("Seminar Nos."; Rec."Seminar No.")
                 {
                 }
                 field("Seminar Registration Nos.";
-                Rec."Seminar Registration Nos.")
+                Rec."Seminar Registration No.")
                 {
                 }
                 field("Posted Seminar Reg. Nos."; Rec."Posted Seminar Reg. Nos")
