@@ -1,7 +1,13 @@
 table 50132 "CSD Seminar Ledger Entry"
 {
-    Caption = 'CSD Seminar Ledger Entry';
+    // Chapter 8 - Lab 2-1
+    // Added key2
+    // Chapter 8 - Lab 2 - 3
+    // Added LookupPageId & DrilldownPageId properties
     DataClassification = CustomerContent;
+    Caption = 'Seminar Ledger Entry';
+    LookupPageId = "CSD Seminar Ledger Entries";
+    DrillDownPageId = "CSD Seminar Ledger Entries";
 
     fields
     {
@@ -153,6 +159,9 @@ table 50132 "CSD Seminar Ledger Entry"
         key(PK; "Entry No.")
         {
             Clustered = true;
+        }
+        key(key2; "Document No.", "Posting Date")
+        {
         }
     }
     var

@@ -5,9 +5,9 @@ table 50001 "Seminar Registration List"
 
     fields
     {
-        field(1; Test; Text[100])
+        field(1; "Seminar No."; Text[100])
         {
-            Caption = 'Test';
+            Caption = 'Seminar No.';
             DataClassification = CustomerContent;
         }
     }

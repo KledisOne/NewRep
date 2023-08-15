@@ -1,5 +1,7 @@
 page 50004 "Posted Seminar Registration"
 {
+    // Chapter 8 - Lab 2 - 4
+    // Added Action Navigate
     ApplicationArea = All;
     Caption = 'Posted Seminar Registration';
     PageType = List;
@@ -93,6 +95,26 @@ page 50004 "Posted Seminar Registration"
             }
             repeater(Invoicing)
             {
+            }
+        }
+    }
+    actions
+    {
+        area(Processing)
+        {
+            action("&Navigate")
+            {
+                Caption = '&Navigate';
+                Image = Navigate;
+                Promoted = true;
+                PromotedCategory = Process;
+                trigger OnAction();
+                var
+                    Navigate: page Navigate;
+                begin
+                    Navigate.SetDoc("Posting Date", "No.");
+                    Navigate.RUN;
+                end;
             }
         }
     }

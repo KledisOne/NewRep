@@ -1,5 +1,7 @@
 table 50106 SeminarRegistrationHeader
 {
+    // STR - CSD1.00 - 2023-08-07 - KGJ
+    // Chapter 8 - Lab 8 1-1
     Caption = 'SeminarRegistrationHeader';
     DataClassification = CustomerContent;
 
@@ -143,6 +145,19 @@ table 50106 SeminarRegistrationHeader
             SeminarJnlLine."Reason Code" := "Reason Code";
             SeminarJnlLine."Posting No. Series" := "Posting No. Series";
         end;
+    end;
+
+    trigger OnInsert()
+    var
+        myInt: Integer;
+    begin
+        // >> Lab 8 1-1
+        if GetFilter("Seminar No.") <> '' then
+            if GetRangeMin("Seminar No.") = GetRangeMax("Seminar No.")
+            then
+                Validate("Seminar No.", GetRangeMin("Seminar No."));
+        // << Lab 8 1-1
+
     end;
 
     var

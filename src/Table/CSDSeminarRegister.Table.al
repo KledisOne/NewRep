@@ -40,6 +40,11 @@ table 50133 "CSD Seminar Register"
             Caption = 'Journal Batch';
             DataClassification = CustomerContent;
         }
+        field(8; "Seminar No."; Code[10])
+        {
+            Caption = 'Seminar No.';
+            DataClassification = CustomerContent;
+        }
 
 
     }

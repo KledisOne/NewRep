@@ -75,6 +75,16 @@ page 50102 "CSD Seminar Card"
         {
             group("&Seminar")
             {
+                action("Seminar Ledger Entries")
+                {
+                    RunObject = page "CSD Seminar Comment Sheet";
+                    RunPageLink = "Table Name" = const(Seminar), "No." = field("No.");
+                    Image = Comment;
+                    Promoted = true;
+                    PromotedIsBig = true;
+                    PromotedOnly = true;
+                    Caption = 'Seminar Ledger Entries';
+                }
                 action("Co&mments")
                 {
                     RunObject = page "CSD Seminar Comment Sheet";
@@ -83,9 +93,65 @@ page 50102 "CSD Seminar Card"
                     Promoted = true;
                     PromotedIsBig = true;
                     PromotedOnly = true;
+                    Caption = 'Co&mments';
+                }
+
+                // >> Lab 8 1-2
+                action("Ledger Entries")
+                {
+                    Caption = 'Ledger Entries';
+                    RunObject = page "CSD Seminar Ledger Entries";
+                    RunPageLink = "Seminar No." = field("No.");
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    ShortcutKey = "Ctrl+F7";
+                    Image = WarrantyLedger;
+                }
+            }
+            group(Registration)
+            {
+            }
+
+            // >> Lab 8 1-2
+            action("&Registrations")
+            {
+                Caption = '&Registrations';
+                RunObject = page "Seminar Registration List";
+                RunPageLink = "Seminar No." = field("No.");
+                Image = Timesheet;
+                Promoted = true;
+                PromotedCategory = Process;
+            }
+            // << Lab 8 1-2
+
+            group("New Document Items")
+            {
+                action("Seminar Registration")
+                {
+                    RunObject = page "CSD Seminar Comment Sheet";
+                    RunPageLink = "Table Name" = const(Seminar), "No." = field("No.");
+                    Image = Comment;
+                    Promoted = true;
+                    PromotedIsBig = true;
+                    PromotedOnly = true;
+                    Caption = 'Seminar Registration';
                 }
             }
         }
+        // >> Lab 8 1-2
+        area(Processing)
+        {
+            action("Seminar Registration2")
+            {
+                RunObject = page "CSD Seminar Registers";
+                RunPageLink = "Seminar No." = field("No.");
+                RunPageMode = Create;
+                Image = NewTimesheet;
+                Promoted = true;
+                PromotedCategory = New;
+            }
+        }
+        // << Lab 8 1-2
     }
     var
         AssistEdit: Boolean;

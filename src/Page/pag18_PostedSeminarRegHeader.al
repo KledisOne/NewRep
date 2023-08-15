@@ -1,59 +1,52 @@
-table 50118 "CSD Posted Seminar Reg.Header"
+page 50108 "CSD Posted Seminar Reg.Header"
 {
-    // CSD1.00 - 2023-08-07 - KGJ
-    // Chapter 7 - Lab 3-1
     Caption = 'CSD Posted Seminar Reg.Header';
-    DataClassification = CustomerContent;
-
-    fields
+    SourceTable = "CSD Posted Seminar Reg.Header";
+    DelayedInsert = true;
+    
+    layout
     {
-        field(4; "No."; Code[50])
+        area(Content)
         {
-            Caption = 'No.';
-
-        }
-        field(5; "Instructor Code"; Code[50])
-        {
-            Caption = 'Instructor Code';
-
-        }
-        field(6; "Instructor Name"; Text[50])
-        {
-            CalcFormula = lookup(Resource.Name where("No." = field("Instructor Code"),
-           Type = const(Person)));
-            Editable = false;
-            FieldClass = FlowField;
-
-        }
-        Field(22; Comment; Boolean)
-        {
-            Caption = 'Comment';
-            CalcFormula = Exist("CSD Seminar Comment Line" where
-            ("Table Name" = const("Posted Seminar Reg. Header"), "No." = Field("No.")));
-            Editable = false;
-            FieldClass = FlowField;
-        }
-        field(29; "User Id"; Code[50])
-        {
-            Caption = 'User Id';
-            TableRelation = User;
-            ValidateTableRelation = false;
-        }
-        field(30; "Source Code"; Code[10])
-        {
-            Caption = 'Source Code';
-            TableRelation = "Source Code";
+            repeater(GroupName)
+            {
+               
+                field(Comment; Rec.Comment)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Comment field.';
+                }
+                field("Instructor Code"; Rec."Instructor Code")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("Instructor Name"; Rec."Instructor Name")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Name field.';
+                }
+                field("No."; Rec."No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the No. field.';
+                }
+                field("Posting Date"; Rec."Posting Date")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Posting Date field.';
+                }
+                field("Source Code"; Rec."Source Code")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Source Code field.';
+                }
+                field("User Id"; Rec."User Id")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the User Id field.';
+                }
+            }
         }
     }
-
-    keys
-    {
-        key(Key1; "Instructor Code")
-        {
-            Clustered = true;
-        }
-    }
-
 }
-
-
