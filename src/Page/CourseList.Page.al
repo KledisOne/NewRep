@@ -17,35 +17,50 @@ page 50118 "CRONUS Course List"
         {
             repeater(General)
             {
-                field(Code; Rec.Code)
+                
+                field(Active; Rec.Active)
                 {
-                    Caption = 'Code';
-                    ApplicationArea = All;
-
+                    ToolTip = 'Specifies the value of the Active field.';
                 }
-                field(Name; Rec.Name)
+                field("Code"; Rec."Code")
                 {
-                    Caption = 'Name';
-                    ApplicationArea = All;
-
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
                 field(Description; Rec.Description)
                 {
-                    Caption = 'Description';
-                    ApplicationArea = All;
-
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
-                field(Price; Rec.Price)
+                field(Difficulty; Rec.Difficulty)
                 {
-                    Caption = 'Price';
-                    ApplicationArea = All;
-
+                    ToolTip = 'Specifies the value of the Difficulty field.';
+                }
+                field("Duration"; Rec."Duration")
+                {
+                    ToolTip = 'Specifies the value of the Duration field.';
+                }
+                field("Instructor Code"; Rec."Instructor Code")
+                {
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
                 field("Instructor Name"; Rec."Instructor Name")
                 {
-                    Caption = 'Instructor Name';
-                    ApplicationArea = All;
-
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field(Name; Rec.Name)
+                {
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("Passing Rate"; Rec."Passing Rate")
+                {
+                    ToolTip = 'Specifies the value of the Passing Rate field.';
+                }
+                field(Price; Rec.Price)
+                {
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("Type"; Rec."Type")
+                {
+                    ToolTip = 'Specifies the value of the Type field.';
                 }
             }
         }

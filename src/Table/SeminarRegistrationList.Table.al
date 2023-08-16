@@ -13,7 +13,7 @@ table 50001 "Seminar Registration List"
     }
     keys
     {
-        key(PK; Test)
+        key(PK; "Seminar No.")
         {
             Clustered = true;
         }

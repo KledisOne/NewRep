@@ -15,6 +15,41 @@ page 50102 "CSD Seminar Card"
         {
             group(General)
             {
+                field(Blocked; Rec.Blocked)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Blocked field.';
+                }
+                field("Last Date Modified"; Rec."Last Date Modified")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Last Date Modified field.';
+                }
+                field("Maximum Participants"; Rec."Maximum Participants")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("Minimum Participants"; Rec."Minimum Participants")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field(Name; Rec.Name)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("Search Name"; Rec."Search Name")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Search Name field.';
+                }
+                field("Seminar Duration"; Rec."Seminar Duration")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
                 field("No."; Rec."No.")
                 {
                     AssistEdit = true;
@@ -24,38 +59,35 @@ page 50102 "CSD Seminar Card"
                             CurrPage.Update;
                     end;
                 }
-                field(Name; Rec.Name)
-                {
-                }
-                field("Search Name"; Rec."Search Name")
-                {
-                }
-                field("Seminar Duration"; Rec."Seminar Duration")
-                {
-                }
-                field("Minimum Participants"; Rec."Minimum Participants")
-                {
-                }
-                field("Maximum Participants"; Rec."Maximum Participants")
-                {
-                }
-                field(Blocked; Rec.Blocked)
-                {
-                }
-                field("Last Date Modified"; Rec."Last Date Modified")
-                {
-                }
+
             }
             group(Invoicing)
             {
+
+                field(Comment; Rec.Comment)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Comment field.';
+                }
                 field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
                 {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Gen. Prod. Posting Group field.';
                 }
-                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
+                field("No. Series"; Rec."No. Series")
                 {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the No. Series field.';
                 }
                 field("Seminar Price"; Rec."Seminar Price")
                 {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the VAT Prod. Posting Group field.';
                 }
             }
         }
@@ -84,6 +116,8 @@ page 50102 "CSD Seminar Card"
                     PromotedIsBig = true;
                     PromotedOnly = true;
                     Caption = 'Seminar Ledger Entries';
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
                 action("Co&mments")
                 {
@@ -94,6 +128,8 @@ page 50102 "CSD Seminar Card"
                     PromotedIsBig = true;
                     PromotedOnly = true;
                     Caption = 'Co&mments';
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
 
                 // >> Lab 8 1-2
@@ -106,6 +142,8 @@ page 50102 "CSD Seminar Card"
                     PromotedCategory = Process;
                     ShortcutKey = "Ctrl+F7";
                     Image = WarrantyLedger;
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
             }
             group(Registration)
@@ -121,6 +159,8 @@ page 50102 "CSD Seminar Card"
                 Image = Timesheet;
                 Promoted = true;
                 PromotedCategory = Process;
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Instructor Code field.';
             }
             // << Lab 8 1-2
 
@@ -135,6 +175,8 @@ page 50102 "CSD Seminar Card"
                     PromotedIsBig = true;
                     PromotedOnly = true;
                     Caption = 'Seminar Registration';
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
             }
         }
@@ -149,6 +191,8 @@ page 50102 "CSD Seminar Card"
                 Image = NewTimesheet;
                 Promoted = true;
                 PromotedCategory = New;
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Instructor Code field.';
             }
         }
         // << Lab 8 1-2

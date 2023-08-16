@@ -10,7 +10,6 @@
             "server": "http://daikin-it22",
             "serverInstance": "BC",
             "authentication": "UserPassword",
-            "startupObjectId": 22,
             "startupObjectType": "Page",
             "breakOnError": "All",
             "launchBrowser": true,

@@ -17,6 +17,7 @@ page 50124 "Example Types"
             repeater(General)
             {
 
+                
                 field("Code"; Rec."Code")
                 {
                     ToolTip = 'Specifies the value of the Code field.';

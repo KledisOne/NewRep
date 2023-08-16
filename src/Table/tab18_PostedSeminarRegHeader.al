@@ -59,6 +59,16 @@ table 50118 "CSD Posted Seminar Reg.Header"
             TableRelation = "Source Code";
             DataClassification = CustomerContent;
         }
+        field(31; "No. Printed"; Integer)
+        {
+            Caption = 'No. Printed';
+            DataClassification = CustomerContent;
+        }
+        field(32; "No. Series"; Code[10])
+        {
+            Caption = 'No. Series';
+            DataClassification = CustomerContent;
+        }
     }
 
     keys

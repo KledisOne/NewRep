@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="SeminarRegistrationHeaderCap">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SeminarRegistrationHeaderCap</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SeminarRegistrationHeaderCap</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="RoomName_SeminarRegistrationHeaderCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>RoomName_SeminarRegistrationHeaderCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>RoomName_SeminarRegistrationHeaderCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Duration_SeminarRegistrationHeaderCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Duration_SeminarRegistrationHeaderCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Duration_SeminarRegistrationHeaderCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="No_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>No_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>No_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="InstructorName_SeminarRegistrationHeaderCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>InstructorName_SeminarRegistrationHeaderCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>InstructorName_SeminarRegistrationHeaderCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SeminarNo_SeminarRegistrationHeaderCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SeminarNo_SeminarRegistrationHeaderCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SeminarNo_SeminarRegistrationHeaderCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="StartingDate_SeminarRegistrationHeaderCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>StartingDate_SeminarRegistrationHeaderCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>StartingDate_SeminarRegistrationHeaderCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DocumentNo_SeminarRegistrationLineCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DocumentNo_SeminarRegistrationLineCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DocumentNo_SeminarRegistrationLineCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LineNo_SeminarRegistrationLineCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>LineNo_SeminarRegistrationLineCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>LineNo_SeminarRegistrationLineCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="RoomName_SeminarRegistrationHeader">
+          <DataField>RoomName_SeminarRegistrationHeader</DataField>
+        </Field>
+        <Field Name="Duration_SeminarRegistrationHeader">
+          <DataField>Duration_SeminarRegistrationHeader</DataField>
+        </Field>
+        <Field Name="Duration_SeminarRegistrationHeaderFormat">
+          <DataField>Duration_SeminarRegistrationHeaderFormat</DataField>
+        </Field>
+        <Field Name="No_">
+          <DataField>No_</DataField>
+        </Field>
+        <Field Name="InstructorName_SeminarRegistrationHeader">
+          <DataField>InstructorName_SeminarRegistrationHeader</DataField>
+        </Field>
+        <Field Name="SeminarName_SeminarRegistrationHeader">
+          <DataField>SeminarName_SeminarRegistrationHeader</DataField>
+        </Field>
+        <Field Name="SeminarNo_SeminarRegistrationHeader">
+          <DataField>SeminarNo_SeminarRegistrationHeader</DataField>
+        </Field>
+        <Field Name="StartingDate_SeminarRegistrationHeader">
+          <DataField>StartingDate_SeminarRegistrationHeader</DataField>
+        </Field>
+        <Field Name="DocumentNo_SeminarRegistrationLine">
+          <DataField>DocumentNo_SeminarRegistrationLine</DataField>
+        </Field>
+        <Field Name="LineNo_SeminarRegistrationLine">
+          <DataField>LineNo_SeminarRegistrationLine</DataField>
+        </Field>
+        <Field Name="Company_Name">
+          <DataField>Company_Name</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

@@ -5,7 +5,7 @@ table 50109 "Posted Seminar Registration"
 
     fields
     {
-        field(1; "No."; Decimal)
+        field(1; "No."; Code[20])
         {
             Caption = 'No.';
             DataClassification = CustomerContent;

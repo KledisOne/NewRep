@@ -93,9 +93,9 @@ table 50131 "CSD Seminar Journal Line"
             DataClassification = CustomerContent;
             OptionMembers = Seminar;
         }
-        field(17; "Posting No. Series"; Code[10])
+        field(17; "No. Series"; Code[10])
         {
-            Caption = 'Posting No. Series';
+            Caption = 'No. Series';
             DataClassification = CustomerContent;
         }
         field(18; "Source No."; Text[100])
@@ -106,6 +106,59 @@ table 50131 "CSD Seminar Journal Line"
         field(19; Description; Text[100])
         {
             Caption = 'Description';
+            DataClassification = CustomerContent;
+        }
+        field(20; "Entry Type"; Option)
+        {
+            Caption = 'Entry Type';
+            DataClassification = CustomerContent;
+            OptionMembers = any;
+        }
+        field(21; "Bill-to Customer No."; Code[50])
+        {
+            Caption = 'Bill-to Customer No.';
+            DataClassification = CustomerContent;
+        }
+        field(22; "Type"; Option)
+        {
+            Caption = 'Type';
+            DataClassification = CustomerContent;
+            OptionMembers = Resource;
+
+        }
+        field(23; "Unit Price"; Decimal)
+        {
+            Caption = 'Unit Price';
+            DataClassification = CustomerContent;
+        }
+        field(24; "Total Price"; Decimal)
+        {
+            Caption = 'Total Price';
+            DataClassification = CustomerContent;
+        }
+        field(25; "Res. Ledger Entry No."; Integer)
+        {
+            Caption = 'Res. Ledger Entry No.';
+            DataClassification = CustomerContent;
+        }
+        field(26; "Participant Contact No."; Code[20])
+        {
+            Caption = 'Participant Contact No.';
+            DataClassification = CustomerContent;
+        }
+        field(27; "Participant Name"; Text[50])
+        {
+            Caption = 'Participant Name';
+            DataClassification = CustomerContent;
+        }
+        field(28; Chargeable; Boolean)
+        {
+            Caption = 'Chargeable';
+            DataClassification = CustomerContent;
+        }
+        field(29; "Resource No."; Integer)
+        {
+            Caption = 'Resource No.';
             DataClassification = CustomerContent;
         }
     }
@@ -130,6 +183,11 @@ table 50131 "CSD Seminar Journal Line"
     // end;
 
     procedure EmptyLine(): Boolean;
+    var
+        UserSetup: Record "User Setup";
+        AllowPostingFrom: Date;
+        AllowPostingTo: Date;
+        GLSetup: Record "General Ledger Setup";
     begin
         case "Charge Type" of
             "Charge Type"::Instructor:
@@ -141,34 +199,34 @@ table 50131 "CSD Seminar Journal Line"
         end;
 
         if "Posting Date" = ClosingDate("Posting Date") then
-            FieldError("Posting Date", ClosingDateTxt);
+            // FieldError("Posting Date", ClosingDateTxt);
 
         if Chargeable then
-            TestField("Bill-to Customer No.");
+                TestField("Bill-to Customer No.");
 
-        if (AllowPostingFrom = 0D) and (AllowPostingTo = 0D) then begin
-            if UserId <> '' then
-                if UserSetup.GET(UserId) then begin
-                    AllowPostingFrom := UserSetup."Allow Posting From";
-                    AllowPostingTo := UserSetup."Allow Posting To";
-                end;
-            if (AllowPostingFrom = 0D) and (AllowPostingTo = 0D)
-            then begin
-                GLSetup.GET;
-                AllowPostingFrom := GLSetup."Allow Posting From";
-                AllowPostingTo := GLSetup."Allow Posting To";
+        // if (AllowPostingFrom = 0D) and (AllowPostingTo = 0D) then begin
+        if UserId <> '' then
+            if UserSetup.GET(UserId) then begin
+                AllowPostingFrom := UserSetup."Allow Posting From";
+                AllowPostingTo := UserSetup."Allow Posting To";
             end;
-            if AllowPostingTo = 0D then
-                AllowPostingTo := DMY2Date(31, 12, 9999);
+        if (AllowPostingFrom = 0D) and (AllowPostingTo = 0D)
+        then begin
+            GLSetup.GET;
+            AllowPostingFrom := GLSetup."Allow Posting From";
+            AllowPostingTo := GLSetup."Allow Posting To";
         end;
+        if AllowPostingTo = 0D then
+            AllowPostingTo := DMY2Date(31, 12, 9999);
         if ("Posting Date" < AllowPostingFrom) OR
-        ("Posting Date" > AllowPostingTo) then
-            FieldError("Posting Date", PostingDateTxt);
+    ("Posting Date" > AllowPostingTo) then
+            // FieldError("Posting Date", PostingDateTxt);
 
         TestField("Posting Date");
         TestField("Instructor Resource No.");
         TestField("Seminar No.");
         exit((Rec."Seminar No." = '') AND (Rec.Quantity = 0) AND ("Posting Date" = 0D) AND ("Resource No." = 0));
+
     end;
 
 

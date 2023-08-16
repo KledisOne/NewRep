@@ -45,7 +45,7 @@ table 50113 "Seminar Charge"
             Caption = 'Total Price';
             DataClassification = CustomerContent;
         }
-        field(9; "To invoice"; Integer)
+        field(9; "To invoice"; Boolean)
         {
             Caption = 'To invoice';
             DataClassification = CustomerContent;
@@ -54,6 +54,18 @@ table 50113 "Seminar Charge"
         {
             Caption = 'Document No.';
             DataClassification = CustomerContent;
+        }
+        field(11; "Bill-to Customer No."; Code[50])
+        {
+            Caption = 'Bill-to Customer No.';
+            DataClassification = CustomerContent;
+        }
+        field(12; "Type"; Option)
+        {
+            Caption = 'Type';
+            DataClassification = CustomerContent;
+            OptionMembers = Resource;
+
         }
     }
     keys
@@ -87,7 +99,7 @@ table 50113 "Seminar Charge"
         SeminarRegHeader."No.");
         if Rec.FindSet(false, false) then
             repeat
-                PostSeminarJnlLine(3); // Charge
+                // PostSeminarJnlLine(3); // Charge
             until Rec.next = 0;
     end;
 }

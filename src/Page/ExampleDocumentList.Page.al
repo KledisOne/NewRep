@@ -17,21 +17,26 @@ page 50130 "Example Document List"
         {
             repeater(GroupName)
             {
+                
+                field("Document Date"; Rec."Document Date")
+                {
+                    ToolTip = 'Specifies the value of Document Date.';
+                }
                 field("No."; Rec."No.")
                 {
                     ToolTip = 'Specifies the value of the No. field.';
                 }
-                field("Document Date"; Rec."Document Date")
+                field("No. Printed"; Rec."No. Printed")
                 {
-                    ToolTip = 'Specifies the value of the Document Date field.';
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("No. Series"; Rec."No. Series")
+                {
+                    ToolTip = 'Specifies the value of the No. Series field.';
                 }
                 field("Posting Date"; Rec."Posting Date")
                 {
-                    ToolTip = 'Specifies the value of the Posting Date field.';
-                }
-                field("No. Printed"; Rec."No. Printed")
-                {
-                    ToolTip = 'Specifies the value of the No. Printed field.';
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
             }
         }

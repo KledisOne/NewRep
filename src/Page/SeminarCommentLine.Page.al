@@ -1,21 +1,20 @@
-page 50106 "CSD Seminar Comment Sheet"
+page 50002 SeminarCommentLine
 {
-    // STR - CSD1.00 - 2023-08-07 - KGJ
-    // Chapter 5 - Lab 1-2
-    // Added new fields:  Date, Code, Comment
-    Caption = 'Seminar Comment Sheet';
+    ApplicationArea = All;
+    Caption = 'SeminarCommentLine';
     PageType = List;
-    Editable = false;
     SourceTable = "CSD Seminar Comment Line";
     UsageCategory = Administration;
-    ApplicationArea = All;
+
     layout
     {
         area(content)
         {
-            repeater(Group)
+            repeater(General)
             {
+                
                
+                
                 field("Code"; Rec."Code")
                 {
                     ToolTip = 'Specifies the value of the Instructor Code field.';

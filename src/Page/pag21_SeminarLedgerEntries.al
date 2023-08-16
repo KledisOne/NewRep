@@ -9,6 +9,7 @@ page 50121 "CSD Seminar Ledger Entries"
     DelayedInsert = true;
     Editable = false;
     UsageCategory = Lists;
+    ApplicationArea = All;
 
     layout
     {
@@ -16,66 +17,121 @@ page 50121 "CSD Seminar Ledger Entries"
         {
             repeater(Group)
             {
-                field("Posting Date"; "Posting Date")
+                field("Bill-to Customer"; Rec."Bill-to Customer")
                 {
+                    ToolTip = 'Specifies the value of the Bill-to Customer field.';
                 }
-                field("Document No."; "Document No.")
+                field("Bill-to Customer No."; Rec."Bill-to Customer No.")
                 {
+                    ToolTip = 'Specifies the value of the Bill-to Customer No. field.';
                 }
-                field("Document Date"; "Document Date")
+                field("Charge Type"; Rec."Charge Type")
                 {
-                    Visible = false;
+                    ToolTip = 'Specifies the value of the Charge Type field.';
                 }
-                field("Entry Type"; "Entry Type")
+                field(Chargeable; Rec.Chargeable)
                 {
+                    ToolTip = 'Specifies the value of the Chargeable field.';
                 }
-                field("Seminar No."; "Seminar No.")
+                field(Description; Rec.Description)
                 {
+                    ToolTip = 'Specifies the value of the Description field.';
                 }
-                field(Description; Description)
+                field("Document Date"; Rec."Document Date")
                 {
+                    ToolTip = 'Specifies the value of the Document Date field.';
                 }
-                field("Bill-to Customer No."; "Bill-to Customer")
+                field("Document No."; Rec."Document No.")
                 {
+                    ToolTip = 'Specifies the value of the Document No. field.';
                 }
-                field("Charge Type"; "Charge Type")
+                field("Entry No."; Rec."Entry No.")
                 {
+                    ToolTip = 'Specifies the value of the Entry No. field.';
                 }
-                field(Type; Type)
+                field("Entry Type"; Rec."Entry Type")
                 {
+                    ToolTip = 'Specifies the value of the Entry Type field.';
                 }
-                field(Quantity; Quantity)
+                field("Instructor Resource No."; Rec."Instructor Resource No.")
                 {
+                    ToolTip = 'Specifies the value of the Instructor Resource No. field.';
                 }
-                field("Unit Price"; "Unit Price")
+                field("Journal Batch Name"; Rec."Journal Batch Name")
                 {
+                    ToolTip = 'Specifies the value of the Journal Batch Name field.';
                 }
-                field("Total Price"; "Total Price")
+                field("Participant Contact No."; Rec."Participant Contact No.")
                 {
+                    ToolTip = 'Specifies the value of the Participant Contact No. field.';
                 }
-                field(Chargeable; Chargeable)
+                field("Participant Name"; Rec."Participant Name")
                 {
+                    ToolTip = 'Specifies the value of the Participant Name field.';
                 }
-                field("Participant Contact No."; "Participant Contact No.")
+                field("Posting Date"; Rec."Posting Date")
                 {
+                    ToolTip = 'Specifies the value of the Posting Date field.';
                 }
-                field("Participant Name"; "Participant Name")
+                field("Posting No. Series"; Rec."Posting No. Series")
                 {
+                    ToolTip = 'Specifies the value of the Posting No. Series field.';
                 }
-                field("Instructor Resource No."; "Instructor Resource No.")
+                field(Quantity; Rec.Quantity)
                 {
+                    ToolTip = 'Specifies the value of the Quantity field.';
                 }
-                field("Room Resource No."; "Room Resource No.")
+                field("Reason Code"; Rec."Reason Code")
                 {
+                    ToolTip = 'Specifies the value of the Reason Code field.';
                 }
-                field("Starting Date"; "Starting Date")
+                field("Res. Ledger Entry No."; Rec."Res. Ledger Entry No.")
                 {
+                    ToolTip = 'Specifies the value of the Res. Ledger Entry No. field.';
                 }
-                field("Seminar Registration No."; "Seminar Registration No.")
+                field("Room Resource No."; Rec."Room Resource No.")
                 {
+                    ToolTip = 'Specifies the value of the Room Resource No. field.';
                 }
-                field("Entry No."; "Entry No.")
+                field("Seminar No."; Rec."Seminar No.")
                 {
+                    ToolTip = 'Specifies the value of the Seminar No. field.';
+                }
+                field("Seminar Registration No."; Rec."Seminar Registration No.")
+                {
+                    ToolTip = 'Specifies the value of the Seminar Registration No. field.';
+                }
+                field("Source Code"; Rec."Source Code")
+                {
+                    ToolTip = 'Specifies the value of the Source Code field.';
+                }
+                field("Source No."; Rec."Source No.")
+                {
+                    ToolTip = 'Specifies the value of the Source No. field.';
+                }
+                field("Source Type"; Rec."Source Type")
+                {
+                    ToolTip = 'Specifies the value of the Source Type field.';
+                }
+                field("Starting Date"; Rec."Starting Date")
+                {
+                    ToolTip = 'Specifies the value of the Starting Date field.';
+                }
+                field("Total Price"; Rec."Total Price")
+                {
+                    ToolTip = 'Specifies the value of the Total Price field.';
+                }
+                field("Type"; Rec."Type")
+                {
+                    ToolTip = 'Specifies the value of the Type field.';
+                }
+                field("Unit Price"; Rec."Unit Price")
+                {
+                    ToolTip = 'Specifies the value of the Unit Price field.';
+                }
+                field("User Id"; Rec."User Id")
+                {
+                    ToolTip = 'Specifies the value of the User Id field.';
                 }
             }
         }
@@ -86,6 +142,8 @@ page 50121 "CSD Seminar Ledger Entries"
         {
             action("&Navigate")
             {
+                ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 Caption = '&Navigate';
                 Image = Navigate;
                 Promoted = true;

@@ -16,56 +16,66 @@ page 50117 "CRONUS Course Card"
             group(General)
             {
                 Caption = 'General';
+                
+                field("Code"; Rec."Code")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
                 field(Description; Rec.Description)
                 {
-                    Caption = 'fieldCaption';
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
                 field(Name; Rec.Name)
                 {
-                    Caption = 'Name';
                     ApplicationArea = All;
-                }
-                field(Code; Rec.Code)
-                {
-                    Caption = 'Code';
-                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
             }
             group(Details)
             {
                 Caption = 'Details';
-                field(Duration; Rec.Duration)
-                {
-                    Caption = 'Duration';
-                    ApplicationArea = All;
-                }
-                field(Price; Rec.Price)
-                {
-                    Caption = 'Price';
-                    ApplicationArea = All;
-                }
-                field(Type; Rec.Type)
-                {
-                    Caption = 'Type';
-                    ApplicationArea = All;
-                }
                 field(Active; Rec.Active)
                 {
-                    Caption = 'Active';
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Active field.';
+                }
+                field(Difficulty; Rec.Difficulty)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Difficulty field.';
+                }
+                field("Duration"; Rec."Duration")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Duration field.';
                 }
                 field("Instructor Code"; Rec."Instructor Code")
                 {
-                    Caption = 'Instructor Code';
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
                 field("Instructor Name"; Rec."Instructor Name")
                 {
-                    Caption = 'Instructor Name';
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
-
+                field("Passing Rate"; Rec."Passing Rate")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Passing Rate field.';
+                }
+                field(Price; Rec.Price)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("Type"; Rec."Type")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Type field.';
+                }
             }
         }
     }

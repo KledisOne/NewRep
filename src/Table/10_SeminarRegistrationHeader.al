@@ -7,6 +7,25 @@ table 50106 SeminarRegistrationHeader
 
     fields
     {
+        
+        field(2; "Room Name"; Text[50])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Room Name';
+
+        }
+        field(3; "Duration"; Decimal)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Duration';
+
+        }
+        field(4; "No."; Code[50])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'No.';
+
+        }
         field(5; "Instructor Code"; Code[50])
         {
             DataClassification = CustomerContent;
@@ -19,6 +38,7 @@ table 50106 SeminarRegistrationHeader
            Type = const(Person)));
             Editable = false;
             FieldClass = FlowField;
+            Caption = 'Instructor Name';
 
         }
         field(7; "Posting Date"; Date)
@@ -77,12 +97,24 @@ table 50106 SeminarRegistrationHeader
             Caption = 'Gen. Prod. Posting Group';
             DataClassification = CustomerContent;
         }
+        field(20; Status; Option)
+        {
+            Caption = 'Status';
+            Editable = false;
+            OptionMembers = Open,Closed, Planning, Registration;
+        }
+        field(40; "No. Printed"; Integer)
+        {
+            Caption = 'No. Printed';
+            Editable = false;
+            DataClassification = CustomerContent;
+        }
 
     }
 
     keys
     {
-        key(Key1; "Instructor Code")
+        key(Key1; "Instructor Code", "No.")
         {
             Clustered = true;
         }
@@ -91,6 +123,7 @@ table 50106 SeminarRegistrationHeader
     var
         ResJnlLine: Record "Res. Journal Line";
         PstdSeminarRegHeader: Record "CSD Posted Seminar Reg.Header";
+        ResLedgEntry: Record "Res. Ledger Entry";
     begin
         with Rec do begin
             ResJnlLine.Init;
@@ -115,7 +148,7 @@ table 50106 SeminarRegistrationHeader
             ResJnlLine."Seminar No." := "Seminar No.";
             ResJnlLine."CSD Seminar Registration No." :=
             PstdSeminarRegHeader."No.";
-            ResJnlPostLine.RunWithCheck(ResJnlLine);
+            // ResJnlPostLine.RunWithCheck(ResJnlLine);
             ResLedgEntry.FindLast;
             exit(ResLedgEntry."Entry No.");
 
@@ -143,7 +176,7 @@ table 50106 SeminarRegistrationHeader
             SeminarJnlLine."Source Type" := SeminarJnlLine."Source Type"::Seminar;
             SeminarJnlLine."Source Code" := "Source Code";
             SeminarJnlLine."Reason Code" := "Reason Code";
-            SeminarJnlLine."Posting No. Series" := "Posting No. Series";
+            SeminarJnlLine."No. Series" := "Posting No. Series";
         end;
     end;
 

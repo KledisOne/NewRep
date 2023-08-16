@@ -48,7 +48,7 @@ table 50121 "CSD Posted Seminar Charge"
             Caption = 'Total Price';
             DataClassification = CustomerContent;
         }
-        field(9; "To invoice"; Integer)
+        field(9; "To invoice"; Boolean)
         {
             Caption = 'To invoice';
             DataClassification = CustomerContent;

@@ -29,8 +29,10 @@ page 50100 "Customer Rewards Wizard"
                 field("Media Reference"; MediaResourcesStandard."Media Reference")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                     Editable = false;
                     ShowCaption = false;
+                    
                 }
             }
 

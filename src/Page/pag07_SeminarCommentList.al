@@ -12,15 +12,41 @@ page 50107 "CSD Seminar Comment List"
         {
             repeater(Group)
             {
-                field(Date; Rec.Date)
+                
+                field("Code"; Rec."Code")
                 {
-                }
-                field(Code; Rec.Code)
-                {
-                    Visible = false;
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
                 field(Comment; Rec.Comment)
                 {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("Date"; Rec."Date")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("Document Line No."; Rec."Document Line No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("Line No."; Rec."Line No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("No."; Rec."No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
+                }
+                field("Table Name"; Rec."Table Name")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Instructor Code field.';
                 }
             }
         }

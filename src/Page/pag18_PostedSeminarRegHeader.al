@@ -3,14 +3,16 @@ page 50108 "CSD Posted Seminar Reg.Header"
     Caption = 'CSD Posted Seminar Reg.Header';
     SourceTable = "CSD Posted Seminar Reg.Header";
     DelayedInsert = true;
-    
+    ApplicationArea = All;
+    PageType = List;
+    UsageCategory = Administration;
     layout
     {
         area(Content)
         {
             repeater(GroupName)
             {
-               
+
                 field(Comment; Rec.Comment)
                 {
                     ApplicationArea = All;

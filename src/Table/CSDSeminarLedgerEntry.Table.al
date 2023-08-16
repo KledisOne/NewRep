@@ -30,6 +30,7 @@ table 50132 "CSD Seminar Ledger Entry"
         {
             Caption = 'Entry Type';
             DataClassification = CustomerContent;
+            OptionMembers = any;
         }
         field(5; "Seminar No."; Code[20])
         {
@@ -50,11 +51,14 @@ table 50132 "CSD Seminar Ledger Entry"
         {
             Caption = 'Charge Type';
             DataClassification = CustomerContent;
+            OptionMembers = any, Instructor, Room, Participant;
         }
         field(9; "Type"; Option)
         {
             Caption = 'Type';
             DataClassification = CustomerContent;
+            OptionMembers = any, Resource;
+
         }
         field(10; Quantity; Decimal)
         {
@@ -116,6 +120,7 @@ table 50132 "CSD Seminar Ledger Entry"
         {
             Caption = 'Source Type';
             DataClassification = CustomerContent;
+            OptionMembers = any;
         }
         field(23; "Source No."; Code[20])
         {
@@ -144,14 +149,26 @@ table 50132 "CSD Seminar Ledger Entry"
         }
         field(28; "User Id"; code[50])
         {
+            Caption = 'User Id';
+            DataClassification = CustomerContent;
             TableRelation = user where("User Name" = field("User Id"));
             ValidateTableRelation = false;
             trigger OnLookup();
             var
                 UserMgt: Codeunit "User Management";
             begin
-                usermgt.LookupUserID("User Id");
+                // usermgt.LookupUserID("User Id");
             end;
+        }
+        field(29; "Bill-to Customer No."; code[50])
+        {
+            Caption = 'Bill-to Customer No.';
+            DataClassification = CustomerContent;
+        }
+        field(30; "Posting No. Series"; Code[10])
+        {
+            Caption = 'Posting No. Series';
+            DataClassification = CustomerContent;
         }
     }
     keys

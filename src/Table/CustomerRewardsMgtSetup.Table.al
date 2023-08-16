@@ -13,7 +13,6 @@ table 50102 "Customer Rewards Mgt Setup"
             Caption = 'Primary Key';
             DataClassification = CustomerContent;
         }
-
         field(2; "Cust. Rew. Ext. Mgt. Cod. ID"; Integer)
         {
             Caption = 'Customer Rewards Ext. Mgt. Codeunit ID';

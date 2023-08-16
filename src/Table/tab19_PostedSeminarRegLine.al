@@ -13,6 +13,11 @@ table 50119 "CSD Posted Seminar Reg. Line"
             Caption = 'test1';
             DataClassification = CustomerContent;
         }
+        field(2; "Document No."; Code[10])
+        {
+            Caption = 'Document No.';
+            DataClassification = CustomerContent;
+        }
     }
     keys
     {

@@ -16,26 +16,25 @@ page 50125 "Example Card"
              group(General)
              {
                  Caption = 'General';
-
-                 field("No."; Rec."No.")
-                 {
-                     ApplicationArea = All;
-                     ToolTip = 'Specifies the value of the No. field.';
-                     trigger OnAssistEdit()
-                     begin
-                         if Rec.AssistEdit(xRec) then
-                             CurrPage.Update();
-                     end;
-                 }
                  field(Description; Rec.Description)
                  {
                      ApplicationArea = All;
-                     ToolTip = 'Specifies the value of the Description field.';
+                     ToolTip = 'Specifies the value of the Instructor Code field.';
                  }
                  field("Example Type Code"; Rec."Example Type Code")
                  {
                      ApplicationArea = All;
-                     ToolTip = 'Specifies the value of the Example Type Code field.';
+                     ToolTip = 'Specifies the value of the Instructor Code field.';
+                 }
+                 field("No."; Rec."No.")
+                 {
+                     ApplicationArea = All;
+                     ToolTip = 'Specifies the value of the Instructor Code field.';
+                 }
+                 field("No. Series"; Rec."No. Series")
+                 {
+                     ApplicationArea = All;
+                     ToolTip = 'Specifies the value of the No. field.';
                  }
              }
          }

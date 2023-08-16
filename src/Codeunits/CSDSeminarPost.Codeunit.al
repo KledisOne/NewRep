@@ -2,7 +2,7 @@ codeunit 50103 "CSD SeminarPost"
 {
     local procedure MyProcedure()
     var
-        CSDPostedSeminarCharges: Record "CSD Posted Seminar Charges";
+        CSDPostedSeminarCharges: Record "CSD Posted Seminar Charge";
         SeminarCharge: Record "Seminar Charge";
     begin
         if SeminarCharge.Find() then

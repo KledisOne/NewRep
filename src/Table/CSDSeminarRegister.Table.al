@@ -20,7 +20,7 @@ table 50133 "CSD Seminar Register"
             Caption = 'To. Entry No.';
             DataClassification = CustomerContent;
         }
-        field(4; "Creation Date"; Code[100])
+        field(4; "Creation Date"; Date)
         {
             Caption = 'Creation Date';
             DataClassification = CustomerContent;
@@ -45,8 +45,21 @@ table 50133 "CSD Seminar Register"
             Caption = 'Seminar No.';
             DataClassification = CustomerContent;
         }
-
-
+        field(9; "Instructor Code"; Code[10])
+        {
+            Caption = 'Instructor Code';
+            DataClassification = CustomerContent;
+        }
+        field(10; "Instructor Name"; Code[10])
+        {
+            Caption = 'Instructor Name';
+            DataClassification = CustomerContent;
+        }
+        field(11; "No. Printed"; Code[10])
+        {
+            Caption = 'No. Printed';
+            DataClassification = CustomerContent;
+        }
     }
     keys
     {
@@ -55,7 +68,7 @@ table 50133 "CSD Seminar Register"
             Clustered = true;
         }
     }
-   
+
 
     var
         SeminarJnlLine: Record "CSD Seminar Journal Line";

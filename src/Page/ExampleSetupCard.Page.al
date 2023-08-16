@@ -19,13 +19,18 @@ page 50140 ExampleSetupCard
             group(General)
             {
                 Caption = 'General';
+                
+                field("Document Nos."; Rec."Document Nos.")
+                {
+                    ToolTip = 'Specifies the value of the Document Nos. field.';
+                }
                 field("Example Nos."; Rec."Example Nos.")
                 {
                     ToolTip = 'Specifies the value of the Example Nos. field.';
                 }
-                field("Document Nos."; Rec."Document Nos.")
+                field("Primary Key"; Rec."Primary Key")
                 {
-                    ToolTip = 'Specifies the value of the Document Nos. field.';
+                    ToolTip = 'Specifies the value of the Primary Key field.';
                 }
             }
         }

@@ -5,8 +5,8 @@ codeunit 50001 "Res. Jnl.-Post LineExt"
     var
         CSDSeminarSetup: Record "CSD Seminar Setup";
     begin
-        ResLedgerEntry."Seminar No." := CSDSeminarSetup."Seminar No.";
-        ResLedgerEntry."Seminar Registration No." := CSDSeminarSetup."Seminar Registration No.";
+        ResLedgerEntry."CSD Seminar No." := CSDSeminarSetup."Seminar No.";
+        ResLedgerEntry."CSD Seminar Registration No." := CSDSeminarSetup."Seminar Registration No.";
     end;
 
     local procedure PostResJnlLine(Resource: Record Resource):
@@ -15,6 +15,7 @@ Integer;
         SeminarRegHeader: Record SeminarRegistrationHeader;
         ResJnlLine: Record "Res. Journal Line";
         PstdSeminarRegHeader: Record "CSD Posted Seminar Reg.Header";
+        ResLedgEntry: Record "Res. Ledger Entry";
     begin
         with SeminarRegHeader do begin
             ResJnlLine.Init;
@@ -33,13 +34,13 @@ Integer;
             ResJnlLine."Unit Cost" := Resource."Unit Cost";
             ResJnlLine."Qty. per Unit of Measure" := 1;
             ResJnlLine.Quantity := Duration *
-Resource."Quantity Per Day";
+Resource."CSD Quantity Per Day";
             ResJnlLine."Total Cost" := ResJnlLine."Unit Cost" *
             ResJnlLine.Quantity;
-            ResJnlLine."CSD Seminar No." := "Seminar No.";
+            ResJnlLine."Seminar No." := "Seminar No.";
             ResJnlLine."CSD Seminar Registration No." :=
             PstdSeminarRegHeader."No.";
-            ResJnlPostLine.RunWithCheck(ResJnlLine);
+            // ResJnlPostLine.RunWithCheck(ResJnlLine);
             ResLedgEntry.FindLast;
             exit(ResLedgEntry."Entry No.");
         end;
@@ -53,6 +54,8 @@ Instructor,Room,Participant,Charge);
         SeminarRegHeader: Record SeminarRegistrationHeader;
         SeminarJnlLine: Record "CSD Seminar Journal Line";
         PstdSeminarRegHeader: Record "CSD Posted Seminar Reg.Header";
+        SeminarRegLine: Record SeminarRegistrationLine;
+        SeminarCharge: Record  "Seminar Charge";
     begin
         with SeminarRegHeader do begin
             SeminarJnlLine.init;
@@ -74,30 +77,30 @@ Instructor,Room,Participant,Charge);
             SeminarJnlLine."Source No." := "Seminar No.";
             SeminarJnlLine."Source Code" := "Source Code";
             SeminarJnlLine."Reason Code" := "Reason Code";
-            SeminarJnlLine."Posting No. Series" :=
+            SeminarJnlLine."No. Series" :=
             "Posting No. Series";
             case ChargeType of
                 ChargeType::Instructor:
                     Begin
-                        Instructor.get("Instructor Resource No.");
-                        SeminarJnlLine.Description := Instructor.Name;
+                        // Instructor.get("Instructor Resource No.");
+                        SeminarJnlLine.Description := "Instructor Name";
                         SeminarJnlLine.Type :=
                         SeminarJnlLine.Type::Resource;
-                        SeminarJnlLine.Chargeable := false;
+                        // SeminarJnlLine.Chargeable := false;
                         SeminarJnlLine.Quantity := Duration;
-                        SeminarJnlLine."Res. Ledger Entry No." :=
-                        PostResJnlLine(Instructor);
+                        // SeminarJnlLine."Res. Ledger Entry No." :=
+                        // PostResJnlLine(Instructor);
                     end;
                 ChargeType::Room:
                     begin
-                        Room.GET("Room Resource No.");
-                        SeminarJnlLine.Description := Room.Name;
+                        // Room.GET("Room Resource No.");
+                        SeminarJnlLine.Description := "Room Name";
                         SeminarJnlLine.Type := SeminarJnlLine.Type::Resource;
-                        SeminarJnlLine.Chargeable := false;
+                        // SeminarJnlLine.Chargeable := false;
                         SeminarJnlLine.Quantity := Duration;
                         // Post to resource ledger
-                        SeminarJnlLine."Res. Ledger Entry No." :=
-                        PostResJnlLine(Room);
+                        // SeminarJnlLine."Res. Ledger Entry No." :=
+                        // PostResJnlLine(Room);
                     end;
                 ChargeType::Participant:
                     begin
@@ -131,8 +134,8 @@ Instructor,Room,Participant,Charge);
                         SeminarCharge."To Invoice";
                     end;
             end;
-            SeminarJnlPostLine.RunWithCheck(SeminarJnlLine);
+            // SeminarJnlPostLine.RunWithCheck(SeminarJnlLine);
         end;
-        
+
     end;
 }

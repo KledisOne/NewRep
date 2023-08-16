@@ -17,7 +17,8 @@ codeunit 50131 "CSD Seminar Jnl.-Check Line"
 
     procedure RunCheck(var SemJnlLine: Record "CSD Seminar Journal Line");
     var
-        myInt: Integer;
+        SeminarRegister: Record "CSD Seminar Register";
+        SeminarLedgerEntry: Record "CSD Seminar Ledger Entry";
     begin
         With SemJnlLine do begin
             if NextEntryNo = 0 then begin
@@ -28,19 +29,19 @@ codeunit 50131 "CSD Seminar Jnl.-Check Line"
                 if SeminarRegister."No." = 0 then begin
                     SeminarRegister.LockTable;
                     if (not SeminarRegister.FindLast) or
-                    (SeminarRegister."To Entry No." <> 0) then begin
+                    (SeminarRegister."To. Entry No." <> 0) then begin
                         SeminarRegister.INIT;
                         SeminarRegister."No." := SeminarRegister."No." + 1;
                         SeminarRegister."From Entry No." := NextEntryNo;
-                        SeminarRegister."To Entry No." := NextEntryNo;
-                        SeminarRegister."Creation Date" := TODAY;
+                        SeminarRegister."To. Entry No." := NextEntryNo;
+                        SeminarRegister."Creation Date" := Today;
                         SeminarRegister."Source Code" := "Source Code";
-                        SeminarRegister."Journal Batch Name" :=
+                        SeminarRegister."Journal Batch" :=
                         "Journal Batch Name";
                         SeminarRegister."User ID" := USERID;
                         SeminarRegister.Insert;
                     end;
-                    SeminarRegister."To Entry No." := NextEntryNo;
+                    SeminarRegister."To. Entry No." := NextEntryNo;
                     SeminarRegister.Modify;
 
                     SeminarLedgerEntry.INIT;
@@ -78,9 +79,8 @@ codeunit 50131 "CSD Seminar Jnl.-Check Line"
                     "Journal Batch Name";
                     SeminarLedgerEntry."Source Code" := "Source Code";
                     SeminarLedgerEntry."Reason Code" := "Reason Code";
-                    SeminarLedgerEntry."No. Series" :=
-                    "Posting No. Series";
-                    SeminarLedgerEntry.”Entry No.”:= NextEntryNo;
+                    SeminarLedgerEntry."Posting No. Series" := "No. Series";
+                    SeminarLedgerEntry."Entry No." := NextEntryNo;
                     NextEntryNo += 1;
                     SeminarLedgerEntry.Insert;
                 end;
@@ -93,5 +93,6 @@ codeunit 50131 "CSD Seminar Jnl.-Check Line"
         RunCheck(Rec);
     end;
 
-
+    var
+        NextEntryNo: Integer;
 }
